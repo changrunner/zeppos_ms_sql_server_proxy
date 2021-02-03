@@ -12,6 +12,7 @@ pytest = ">=6.1.2"
 testfixtures = ">=6.15.0"
 
 [packages]
+pandas = "*"
 
 [requires]
 python_version = "3.7"
