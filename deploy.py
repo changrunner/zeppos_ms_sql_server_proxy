@@ -32,20 +32,20 @@ def main():
 
     out_array = out.decode("utf-8") .split('\r\n')
 
-    if "passed" in out_array[len(out_array)-2]:
-        print("Test Passed")
+    # if "passed" in out_array[len(out_array)-2]:
+    #     print("Test Passed")
 
-        update_build_version_no()
+    update_build_version_no()
 
-        p = Popen(['pipenv', 'run', 'python', 'setup.py', 'sdist', 'bdist_wheel'])
-        p.communicate()
+    p = Popen(['pipenv', 'run', 'python', 'setup.py', 'sdist', 'bdist_wheel'])
+    p.communicate()
 
-        p = Popen(['pipenv', 'run', 'python', '-m', 'twine', 'upload', '--skip-existing', '--repository', 'testpypi', 'dist/*'])
-        p.communicate()
-    else:
-        print("Test Failed")
-        for line in out_array:
-            print(line)
+    p = Popen(['pipenv', 'run', 'python', '-m', 'twine', 'upload', '--skip-existing', '--repository', 'testpypi', 'dist/*'])
+    p.communicate()
+    # else:
+    #     print("Test Failed")
+    #     for line in out_array:
+    #         print(line)
 
 
 if __name__ == '__main__':
