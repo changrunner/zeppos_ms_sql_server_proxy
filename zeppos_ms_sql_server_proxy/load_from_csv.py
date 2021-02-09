@@ -33,13 +33,14 @@ class LoadFromCsv:
         print(self._response.status_code)
 
     @staticmethod
-    def execute(server_name, database_name, schema_name, table_name, csv_root_directory):
+    def execute(server_name, database_name, schema_name, table_name, csv_root_directory, sep="|"):
         load_from_csv = LoadFromCsv(
             server_name=server_name,
             database_name=database_name,
             schema_name=schema_name,
             table_name=table_name,
-            csv_root_directory=csv_root_directory
+            csv_root_directory=csv_root_directory,
+            sep=sep
         )
         load_from_csv._execute()
         return load_from_csv
