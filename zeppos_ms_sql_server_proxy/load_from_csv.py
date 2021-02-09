@@ -2,12 +2,13 @@ import requests
 
 
 class LoadFromCsv:
-    def __init__(self, server_name, database_name, schema_name, table_name, csv_root_directory):
+    def __init__(self, server_name, database_name, schema_name, table_name, csv_root_directory, sep="|"):
         self._server_name = server_name
         self._database_name = database_name
         self._schema_name = schema_name
         self._table_name = table_name
         self._csv_root_directory = csv_root_directory
+        self._sep = sep
         self._response = None
 
     @property
@@ -25,7 +26,8 @@ class LoadFromCsv:
                 "database_name": self._database_name,
                 "schema_name": self._schema_name,
                 "table_name": self._table_name,
-                "csv_root_directory": self._csv_root_directory
+                "csv_root_directory": self._csv_root_directory,
+                "sep": self._sep
             }
         )
         print(self._response.status_code)
