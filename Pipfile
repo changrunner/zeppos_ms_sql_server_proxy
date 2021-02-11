@@ -12,6 +12,7 @@ pytest = ">=6.1.2"
 testfixtures = ">=6.15.0"
 
 [packages]
+requests = ">=2.25.1"
 pandas = ">=1.2.1"
 
 [requires]
